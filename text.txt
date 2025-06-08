@@ -1,0 +1,61 @@
+
+python manage.py inspectdb
+```
+
+1. **جدول المستخدم (ApiUser)**:
+   - id (المفتاح الرئيسي)
+   - username (اسم المستخدم - فريد)
+   - email (البريد الإلكتروني - فريد)
+   - password (كلمة المرور)
+   - first_name (الاسم الأول)
+   - last_name (الاسم الأخير)
+   - role (الدور: طبيب/مريض/مشرف)
+   - phone (رقم الهاتف)
+   - is_active (نشط/غير نشط)
+   - date_joined (تاريخ التسجيل)
+
+2. **جدول الطبيب (ApiDoctorprofile)**:
+   - id (المفتاح الرئيسي)
+   - user (علاقة مع جدول المستخدم)
+   - specialization (التخصص)
+   - experience_years (سنوات الخبرة)
+   - bio (نبذة عن الطبيب)
+   - image (صورة الطبيب)
+   - created_at (تاريخ الإنشاء)
+   - updated_at (تاريخ التحديث)
+
+3. **جدول المريض (ApiPatientprofile)**:
+   - id (المفتاح الرئيسي)
+   - user (علاقة مع جدول المستخدم)
+   - age (العمر)
+   - gender (الجنس)
+   - address (العنوان)
+   - medical_history (التاريخ الطبي)
+   - created_at (تاريخ الإنشاء)
+   - updated_at (تاريخ التحديث)
+
+4. **جدول المواعيد (ApiAppointment)**:
+   - id (المفتاح الرئيسي)
+   - doctor (علاقة مع جدول الطبيب)
+   - patient (علاقة مع جدول المريض)
+   - date (تاريخ الموعد)
+   - time (وقت الموعد)
+   - status (حالة الموعد)
+   - note (ملاحظات)
+   - created_at (تاريخ الإنشاء)
+   - updated_at (تاريخ التحديث)
+
+5. **جدول المواعيد المتاحة (ApiSchedule)**:
+   - id (المفتاح الرئيسي)
+   - doctor (علاقة مع جدول الطبيب)
+   - day_of_week (يوم الأسبوع)
+   - start_time (وقت البداية)
+   - end_time (وقت النهاية)
+
+6. **جدول الإشعارات (ApiNotification)**:
+   - id (المفتاح الرئيسي)
+   - user (علاقة مع جدول المستخدم)
+   - message (نص الإشعار)
+   - created_at (تاريخ الإنشاء)
+   - is_read (مقروء/غير مقروء)
+
