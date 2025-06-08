@@ -1,0 +1,59 @@
+[33mcommit 15fdb210d9a3ef811fc4f860c687790f967019f5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Rehab Kamal <wwwrehabkamal601@gmail.com>
+Date:   Sun Jun 8 21:30:30 2025 +0300
+
+    Add medical migrations Django
+
+ Backend/.env                                                                                                                 |     9 [32m+[m
+ Backend/api/__init__.py                                                                                                      |     0
+ Backend/api/__pycache__/__init__.cpython-312.pyc                                                                             |   Bin [31m0[m -> [32m157[m bytes
+ Backend/api/__pycache__/apps.cpython-312.pyc                                                                                 |   Bin [31m0[m -> [32m457[m bytes
+ Backend/api/__pycache__/models.cpython-312.pyc                                                                               |   Bin [31m0[m -> [32m6305[m bytes
+ Backend/api/appointment/__init__.py                                                                                          |     0
+ Backend/api/appointment/__pycache__/__init__.cpython-312.pyc                                                                 |   Bin [31m0[m -> [32m169[m bytes
+ Backend/api/appointment/__pycache__/urls.cpython-312.pyc                                                                     |   Bin [31m0[m -> [32m230[m bytes
+ Backend/api/appointment/urls.py                                                                                              |     3 [32m+[m
+ Backend/api/apps.py                                                                                                          |     5 [32m+[m
+ Backend/api/auth/__init__.py                                                                                                 |     0
+ Backend/api/auth/__pycache__/__init__.cpython-312.pyc                                                                        |   Bin [31m0[m -> [32m162[m bytes
+ Backend/api/auth/__pycache__/urls.cpython-312.pyc                                                                            |   Bin [31m0[m -> [32m556[m bytes
+ Backend/api/auth/urls.py                                                                                                     |     7 [32m+[m
+ Backend/api/doctor/__pycache__/models.cpython-312.pyc                                                                        |   Bin [31m0[m -> [32m3944[m bytes
+ Backend/api/doctor/__pycache__/serializers.cpython-312.pyc                                                                   |   Bin [31m0[m -> [32m3717[m bytes
+ Backend/api/doctor/__pycache__/urls.cpython-312.pyc                                                                          |   Bin [31m0[m -> [32m612[m bytes
+ Backend/api/doctor/__pycache__/views.cpython-312.pyc                                                                         |   Bin [31m0[m -> [32m5352[m bytes
+ Backend/api/doctor/models.py                                                                                                 |    54 [32m+[m
+ Backend/api/doctor/serializers.py                                                                                            |    63 [32m+[m
+ Backend/api/doctor/urls.py                                                                                                   |    11 [32m+[m
+ Backend/api/doctor/views.py                                                                                                  |    93 [32m+[m
+ Backend/api/migrations/0001_initial.py                                                                                       |   111 [32m+[m
+ Backend/api/migrations/__init__.py                                                                                           |     0
+ Backend/api/migrations/__pycache__/0001_initial.cpython-312.pyc                                                              |   Bin [31m0[m -> [32m8324[m bytes
+ Backend/api/migrations/__pycache__/__init__.cpython-312.pyc                                                                  |   Bin [31m0[m -> [32m168[m bytes
+ Backend/api/models.py                                                                                                        |    91 [32m+[m
+ Backend/api/patient/__init__.py                                                                                              |     0
+ Backend/api/patient/__pycache__/__init__.cpython-312.pyc                                                                     |   Bin [31m0[m -> [32m165[m bytes
+ Backend/api/patient/__pycache__/urls.cpython-312.pyc                                                                         |   Bin [31m0[m -> [32m226[m bytes
+ Backend/api/patient/urls.py                                                                                                  |     3 [32m+[m
+ Backend/core/__init__.py                                                                                                     |     0
+ Backend/core/__pycache__/__init__.cpython-312.pyc                                                                            |   Bin [31m0[m -> [32m158[m bytes
+ Backend/core/__pycache__/apps.cpython-312.pyc                                                                                |   Bin [31m0[m -> [32m460[m bytes
+ Backend/core/admin.py                                                                                                        |     3 [32m+[m
+ Backend/core/apps.py                                                                                                         |     6 [32m+[m
+ Backend/core/migrations/__init__.py                                                                                          |     0
+ Backend/core/models.py                                                                                                       |    11 [32m+[m
+ Backend/core/tests.py                                                                                                        |     3 [32m+[m
+ Backend/core/views.py                                                                                                        |     3 [32m+[m
+ Backend/db.sqlite3                                                                                                           |   Bin [31m0[m -> [32m131072[m bytes
+ Backend/env/bin/Activate.ps1                                                                                                 |   247 [32m++[m
+ Backend/env/bin/activate                                                                                                     |    70 [32m+[m
+ Backend/env/bin/activate.csh                                                                                                 |    27 [32m+[m
+ Backend/env/bin/activate.fish                                                                                                |    69 [32m+[m
+ Backend/env/bin/django-admin                                                                                                 |     8 [32m+[m
+ Backend/env/bin/dotenv                                                                                                       |     8 [32m+[m
+ Backend/env/bin/pip                                                                                                          |     8 [32m+[m
+ Backend/env/bin/pip3                                                                                                         |     8 [32m+[m
+ Backend/env/bin/pip3.12                                                                                                      |     8 [32m+[m
+ Backend/env/bin/python                                                                                                       |     1 [32m+[m
+ Backend/env/bin/python3                                                                                                      |     1 [32m+[m
+ Backend/env/bin/python3.12                                                                                           
