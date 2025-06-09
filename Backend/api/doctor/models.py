@@ -14,7 +14,7 @@ class Specialty(models.Model):
         verbose_name_plural = "Specialties"
 
 class Doctor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='doctor')
     full_name = models.CharField(max_length=255)
     specialty = models.ForeignKey(Specialty, on_delete=models.SET_NULL, null=True)
     profile_image = models.ImageField(upload_to='doctors/', null=True, blank=True)

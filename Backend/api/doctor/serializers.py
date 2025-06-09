@@ -1,8 +1,9 @@
 from rest_framework import serializers
-from .models import Doctor, Specialty, DoctorAvailability
 from django.contrib.auth import get_user_model
-User = get_user_model()
+from .models import Doctor, Specialty, DoctorAvailability
+from api.models import DoctorProfile, Schedule, Appointment
 
+User = get_user_model()
 
 class SpecialtySerializer(serializers.ModelSerializer):
     class Meta:
@@ -58,9 +59,60 @@ class DoctorRegistrationSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(
             username=email,
             email=email,
-            password=password
+            password=password,
+            role='doctor'  # Set role as doctor
         )
         
         # Create Doctor instance
         doctor = Doctor.objects.create(user=user, **validated_data)
-        return doctor 
+        return doctor
+
+class ScheduleSerializer(serializers.ModelSerializer):
+    """
+    Serializer for doctor's schedule - يستخدم لإدارة جدول مواعيد الدكتور
+    """
+    day_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Schedule
+        fields = ['id', 'day_of_week', 'day_name', 'start_time', 'end_time']
+
+    def get_day_name(self, obj):
+        days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        return days[obj.day_of_week]
+
+class DoctorProfileUpdateSerializer(serializers.ModelSerializer):
+    """
+    Serializer for updating doctor's profile - يستخدم لتحديث بيانات الدكتور
+    """
+    class Meta:
+        model = DoctorProfile
+        fields = ['specialization', 'bio', 'experience_years', 'image']
+
+class AppointmentListSerializer(serializers.ModelSerializer):
+    """
+    Serializer for listing doctor's appointments - يستخدم لعرض قائمة المواعيد
+    """
+    patient_name = serializers.CharField(source='patient.user.get_full_name', read_only=True)
+    patient_phone = serializers.CharField(source='patient.user.phone', read_only=True)
+
+    class Meta:
+        model = Appointment
+        fields = [
+            'id', 'patient_name', 'patient_phone', 
+            'date', 'time', 'status', 'note',
+            'created_at'
+        ]
+
+class AppointmentUpdateSerializer(serializers.ModelSerializer):
+    """
+    Serializer for updating appointment status - يستخدم لتحديث حالة الموعد
+    """
+    class Meta:
+        model = Appointment
+        fields = ['status', 'note']
+        
+    def validate_status(self, value):
+        if value not in ['approved', 'rejected']:
+            raise serializers.ValidationError("Status must be either 'accepted' or 'rejected'")
+        return value 

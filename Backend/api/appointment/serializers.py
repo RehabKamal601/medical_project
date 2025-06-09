@@ -23,6 +23,7 @@ class AppointmentUpdateSerializer(serializers.ModelSerializer):
         fields = ['status', 'note']
         
     def validate_status(self, value):
-        if value not in ['pending', 'approved', 'rejected']:
-            raise serializers.ValidationError("Status must be either 'approved' or 'rejected'")
+        valid_statuses = ['approved', 'rejected']
+        if value not in valid_statuses:
+            raise serializers.ValidationError(f"Status must be one of: {', '.join(valid_statuses)}")
         return value 
