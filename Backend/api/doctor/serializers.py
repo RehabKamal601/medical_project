@@ -1,5 +1,8 @@
 from rest_framework import serializers
 from .models import Doctor, Specialty, DoctorAvailability
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
 
 class SpecialtySerializer(serializers.ModelSerializer):
     class Meta:
